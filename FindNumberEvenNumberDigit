@@ -1,0 +1,25 @@
+class Solution {
+    func findNumbers(_ nums: [Int]) -> Int {
+        if(nums.isEmpty || nums.count>500){
+            return 0
+        }
+        var counter=0
+        for index in 0...nums.count-1{
+            if(countNumberDigit(nums[index])%2==0){
+                counter+=1
+            }
+        }
+        
+        return counter
+    }
+    
+    func countNumberDigit(_ number:Int)->Int{
+        var count = 1
+        var division=number
+        while(division/10>0){
+            count+=1
+            division=division/10
+        }
+        return count
+    }
+}
