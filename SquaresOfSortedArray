@@ -1,0 +1,26 @@
+class Solution {
+    func sortedSquares(_ nums: [Int]) -> [Int] {
+        var array=nums
+        
+        for index in 0...nums.count-1{
+            array[index]=nums[index]*nums[index]
+        }
+        array=sortArray(array:array)
+        return array
+    }
+    
+    func sortArray(array:[Int])-> [Int] {
+        var unsortedArray=array
+        for i in stride(from: unsortedArray.count-1, to: 0, by: -1){
+            for j in 1...i{
+                if unsortedArray[j-1] > unsortedArray[j] {
+                    let tmp = unsortedArray[j-1]
+                    unsortedArray[j-1] = unsortedArray[j]
+                    unsortedArray[j] = tmp
+                }
+            }
+        }
+        
+        return unsortedArray
+    }
+}
