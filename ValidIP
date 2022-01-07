@@ -1,0 +1,22 @@
+import Foundation
+
+func isValidIP(_ ip:String) -> Bool{
+  let arr=ip.components(separatedBy: ".")
+  
+  if(arr.count != 4){
+    return false
+  }
+  
+  for index in 0..<arr.count{
+    guard let num = Int(arr[index])
+    else {
+      return false
+    }
+    if((num != nil) && (num>=0&&num<=255)){
+      return true
+    }
+  }
+  return false
+}
+
+
