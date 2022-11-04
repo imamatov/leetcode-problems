@@ -1,0 +1,17 @@
+class Solution {
+    func topKFrequent(_ nums: [Int], _ k: Int) -> [Int] {
+        var dic=[Int:Int]()
+        for num in nums{
+            dic[num,default:0]+=1
+        }
+        var news=dic.sorted{ $0.1 > $1.1}
+        var ans=[Int]()
+        for i in 0..<k{
+            let (key, val)=news[i]
+            ans.append(key)
+            
+        }
+        
+        return ans
+    }
+}
