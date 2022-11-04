@@ -1,0 +1,47 @@
+class Solution {
+    func minWindow(_ s: String, _ t: String) -> String {
+       if t==""{
+           return ""
+       } 
+        
+        var countT=[Character:Int]()
+        var window=[Character:Int]()
+        var t=Array(t)
+        var s=Array(s)
+        
+        for c in t{
+            countT[c,default:0]+=1
+        }
+        var have=0, need=countT.count
+        var res=[-1,-1], resLenth=Int.max
+        var l=0
+        
+        for r in 0..<s.count{
+            var c=s[r]
+            
+            window[c,default:0]+=1
+            
+            if countT[c,default:0] == window[c,default:0]{
+                have+=1
+            }
+            
+            while have==need{
+                if (r-l+1)<resLenth{
+                    res=[l,r]
+                    resLenth=r-l+1
+                }
+                
+                window[s[l],default:0]-=1
+                
+                
+                if window[s[l],default:0] < countT[s[l],default:0]{
+                    have-=1
+                }
+                
+                l+=1
+            }
+        }
+        
+         return resLenth != Int.max ? String(s[res[0]...res[1]]) : ""
+    }
+}
