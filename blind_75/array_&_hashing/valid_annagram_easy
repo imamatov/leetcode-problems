@@ -1,0 +1,30 @@
+class Solution {
+    func isAnagram(_ s: String, _ t: String) -> Bool {
+        //1. reversed
+        // return s.sorted()==t.sorted()
+        
+        
+        //2. using hash table
+        var dic=[Character:Int]()
+        for c in s{
+            dic[c,default:0]+=1
+        }
+        var dic1=[Character:Int]()
+        for c in t{
+            dic1[c,default:0]+=1
+        }
+        for (key,val) in dic{
+            if dic1[key] != val{
+                return false
+            }
+        }
+        
+        for (key,val) in dic1{
+            if dic[key] != val{
+                return false
+            }
+        }
+        
+        return true
+    }
+}
