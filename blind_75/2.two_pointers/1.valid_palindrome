@@ -1,0 +1,55 @@
+class Solution {
+    func isPalindrome(_ s: String) -> Bool {
+        var s=s.stripped.replacingOccurrences(of:" ", with:"").lowercased()
+        //s=s
+        //1. Using built function
+        // if s==String(s.reversed()) {
+        //     return true
+        // }
+        // return false
+        
+        // 2. two pointers
+        
+        var l=0
+        var r=s.count-1
+        var arr=Array(s)
+        while l<r{
+//             while l < r && !isAlphaNumeric(arr[l]){
+//                 l+=1
+//             }
+            
+//              while l > r && !isAlphaNumeric(arr[r]){
+//                 r-=1
+//             }
+            
+            if arr[l] != arr[r]{
+                return false
+            }
+            l+=1
+            r-=1
+        }
+        
+        
+        return true
+    }
+    
+//     func isAlphaNumeric(_ c:Character)->Bool{
+//         return (UnicodeScalar(Character("A"))!.value <= UnicodeScalar(c)!.value 
+//                 && UnicodeScalar(c)!.value <= UnicodeScalar(Character("Z"))!.value)
+        
+//                 || (UnicodeScalar(Character("a"))!.value <= UnicodeScalar(c)!.value 
+//                 && UnicodeScalar(c)!.value <= UnicodeScalar(Character("z"))!.value)
+        
+//                 || (UnicodeScalar(Character("0"))!.value <= UnicodeScalar(c)!.value 
+//                 && UnicodeScalar(c)!.value <= UnicodeScalar(Character("9"))!.value)
+//     }
+    
+}
+
+
+extension String {
+    var stripped: String {
+        let okayChars = Set("abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890")
+        return self.filter {okayChars.contains($0) }
+    }
+}
