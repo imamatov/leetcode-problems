@@ -1,0 +1,36 @@
+class Solution {
+    func containsDuplicate(_ nums: [Int]) -> Bool {
+        //1. with extra memory
+       //  var numSet=Set(nums)
+       // // var numsSet:Set<Int>=Set<Int>()
+       // //  for num in nums{
+       // //      numsSet.insert(num)
+       // //  }
+       //  return numSet.count != nums.count
+        
+        
+        //2. O(n^2) solution
+//         for i in 0..<nums.count{
+//             for j in i+1..<nums.count{
+//                 if nums[i]==nums[j]{
+//                     return true
+//                 }
+//             }
+//         }
+        
+//         return false
+        
+        
+        // 3. sorting 
+        var nums=nums.sorted()
+        
+        for i in 0..<nums.count-1{
+            if nums[i]==nums[i+1]{
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+}
