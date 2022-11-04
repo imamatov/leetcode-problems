@@ -1,0 +1,29 @@
+class Solution {
+    func maxProfit(_ prices: [Int]) -> Int {
+        //1 Minimum Index approach
+        // var maxProfit = -1
+        // var minIndex = 0
+        // for  i in  0..<prices.count {
+        //     if(prices[minIndex] > prices[i]) {
+        //         minIndex = i
+        //     }
+        //     maxProfit = max(prices[i] - prices[minIndex], maxProfit)
+        // }
+        // return maxProfit
+        
+        
+        //2. Using two Pointers
+        var l=0, r=1
+        var maxProfit=0
+        
+        while r<prices.count{
+            if prices[l]<prices[r]{
+                maxProfit=max(maxProfit,prices[r]-prices[l])
+            }else{
+                l=r
+            }
+            r+=1
+        }
+        return maxProfit
+    }
+}
