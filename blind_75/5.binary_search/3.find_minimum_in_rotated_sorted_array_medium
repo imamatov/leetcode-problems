@@ -1,0 +1,46 @@
+class Solution {
+    func findMin(_ nums: [Int]) -> Int {
+        //1.Linear Approach
+//         var mini=Int.max
+//         for n in nums{
+//             mini=min(mini,n)
+//         }
+        
+//         return mini
+        
+        //2. Sorting
+        // nums.sorted().first!
+        
+        
+        //3. Using Pivot point
+//         for i in 1..<nums.count{
+//             if nums[i-1]>nums[i]{
+//                 return nums[i]
+//             }
+//         }
+        
+//         return nums.first!
+        
+        //4. Binary search
+        var l=0, r=nums.count-1
+        var res=nums[0]
+        while l<=r{
+            if nums[l]<nums[r]{
+                res=min(res,nums[l])
+                break
+            }
+            var mid=(l+r)/2
+            res=min(res,nums[mid])
+            
+            if nums[mid]>=nums[l]{
+                l=mid+1
+            }else{
+                r=mid-1
+            }
+        }
+        
+        
+        return res
+        
+    }
+}
