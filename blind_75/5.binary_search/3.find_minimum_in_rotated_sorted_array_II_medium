@@ -1,0 +1,6 @@
+class Solution {
+    func findMin(_ nums: [Int]) -> Int {
+        //1. Sorting
+        nums.sorted().first!
+    }
+}
