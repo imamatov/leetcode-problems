@@ -1,0 +1,39 @@
+class Solution {
+    func longestConsecutive(_ nums: [Int]) -> Int {
+        //1. using sort
+//         if nums.isEmpty{
+//             return 0
+//         }
+//         var nums = nums.sorted()
+//         var count=1
+//         var resultMax=1
+        
+//         for index in 0..<nums.count where index + 1 < nums.count {
+//             if nums[index + 1] - nums[index] == 1 {
+//                 count = count + 1
+//                 resultMax = max(count, resultMax)
+//             } else if nums[index + 1] == nums[index] {
+//                 continue
+//             } else {
+//                 count = 1
+//             }
+//         }
+        
+//         return resultMax
+        
+        //2 . linear solution with O(n) memory
+        var numSet=Set(nums)
+        var longest=0
+        
+        for n in nums{
+            if !numSet.contains(n-1){
+                var length=0
+                while numSet.contains(n+length){
+                    length+=1
+                }
+                longest=max(length,longest)
+            }
+        }
+        return longest
+    }
+}
