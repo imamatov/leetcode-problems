@@ -1,6 +1,6 @@
 class Solution {
     func findMin(_ nums: [Int]) -> Int {
-        //1. Sorting
+        //1. Sorting, Note! This is not perfect solution
         nums.sorted().first!
     }
 }
