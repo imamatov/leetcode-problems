@@ -1,0 +1,35 @@
+class Solution {
+    func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+        //1. O(n^2)
+//         var resArray=[Int]()
+        
+//         for i in 0..<nums.count{
+//             for j in i+1..<nums.count{
+//                 if(target-nums[i]==nums[j]){
+//                     resArray.append(i)
+//                     resArray.append(j)
+//                     break
+//                 }
+//             }
+//         }
+        
+//         return resArray
+        
+        
+        //2. using extra memory O(n)
+        var dic=[Int:Int]()
+        for i in 0..<nums.count{
+            dic[target-nums[i]]=i
+        }
+        
+        for i in 0..<nums.count{
+            if let index=dic[nums[i]]{
+                if i != index{
+                    return [index,i]
+                }
+            }
+        }
+        
+        return []
+    }
+}
