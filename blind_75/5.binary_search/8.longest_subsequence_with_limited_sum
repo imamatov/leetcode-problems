@@ -1,0 +1,19 @@
+class Solution {
+    func answerQueries(_ nums: [Int], _ queries: [Int]) -> [Int] {
+        var res=[Int]()
+        var nums=nums.sorted()
+        for q in queries{
+            var element = 0
+            var sum = 0
+
+            while element < nums.count, (nums[element] + sum) <= q {
+                sum += nums[element]
+                element += 1
+            }
+
+            res.append(element)
+        }
+        
+        return res
+    }
+}
