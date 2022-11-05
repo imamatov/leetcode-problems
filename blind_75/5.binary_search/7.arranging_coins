@@ -1,0 +1,17 @@
+class Solution {
+    func arrangeCoins(_ n: Int) -> Int {
+        //1. n is sum
+        // return Int((-1 + sqrt(Double((n*2) * 4) + 1)) / 2)
+        
+        //2. bineary search
+        var l = 0, r = n
+        while l <= r {
+            let num = (r + l) / 2
+            let mid = num * (num + 1) / 2
+            if mid == n { return num }
+            n < mid ? (r = num - 1) : (l = num + 1)
+        }
+        return r
+        
+    }
+}
