@@ -1,0 +1,19 @@
+class Solution {
+    func findTheDistanceValue(_ arr1: [Int], _ arr2: [Int], _ d: Int) -> Int {
+        var counter=0
+        for n in arr1{
+            var isDistanceValue=true
+            for n1 in arr2{
+                if abs(n-n1)<=d{
+                    isDistanceValue=false
+                    break
+                }
+            }
+            if isDistanceValue{
+                counter+=1
+            }
+        }
+        
+        return counter
+    }
+}
