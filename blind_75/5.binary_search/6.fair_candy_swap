@@ -1,0 +1,16 @@
+class Solution {
+    func fairCandySwap(_ aliceSizes: [Int], _ bobSizes: [Int]) -> [Int] {
+        var sumA=aliceSizes.reduce(0,+)
+        var sumB=bobSizes.reduce(0,+)
+        var difference=(sumA-sumB)/2
+        for a in aliceSizes{
+            for b in bobSizes{
+                if a-b == difference{
+                    return [a,b]
+                }
+            }
+        }
+        
+        return [-1,-1]
+    }
+}
