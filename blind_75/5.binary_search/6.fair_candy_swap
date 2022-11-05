@@ -1,3 +1,5 @@
+// NOTE ! The solution does not use Bineary Search
+
 class Solution {
     func fairCandySwap(_ aliceSizes: [Int], _ bobSizes: [Int]) -> [Int] {
         var sumA=aliceSizes.reduce(0,+)
