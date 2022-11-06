@@ -10,16 +10,31 @@
  */
 class Solution {
     func reverseList(_ head: ListNode?) -> ListNode? {
-        var prev:ListNode?=nil
-        var cur=head
         
-        while cur != nil{
-            var next=cur?.next
-            cur?.next=prev
-            prev=cur
-            cur=next
+        //1. Using Two Pointers O(n) and O(1)
+        // var prev:ListNode?=nil
+        // var cur=head
+        // while cur != nil{
+        //     var next=cur?.next
+        //     cur?.next=prev
+        //     prev=cur
+        //     cur=next
+        // }
+        // return prev
+        
+        //2.Recursive  solution O(n) and O(n)
+        
+        if head == nil{
+            return nil
         }
         
-        return prev
+        var newHead=head
+        if head?.next != nil{
+            newHead=reverseList(head?.next)
+            head?.next?.next=head
+            head?.next=nil
+        }
+        
+        return newHead
     }
 }
